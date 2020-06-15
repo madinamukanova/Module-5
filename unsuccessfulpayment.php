@@ -1,0 +1,421 @@
+<?php
+echo "Error: " . "You haven't reserved a service in the salon yet.";
+?>
+
+
+
+<html>
+<head>
+<title>Online reservation</title>
+<style>
+body {
+ background-image: url("purple.jpg"),url("pink.png");
+background-position: center top,center center;
+  background-attachment:scroll;
+  background-repeat: no-repeat;
+ background-size: 1500px 200px,1500px 4000px;
+  text-align: center;
+  color: white;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 20px;
+  overflow: hidden;
+  background-color: white;
+
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  padding: 8px;
+  color:black;
+}
+a{
+text-decoration: underline;}
+</style>
+</head>
+<body>
+<img src = "instagram.png" align = "left" width = "40px"/>
+<strong><span style = "color:white;position:absolute;left:55px;top:17px;font-size:20px;">@salon.jamila</span></strong>
+<img src = "phone.png" style = "position:absolute;left:190px" width = "40px" />
+<span style = "position:absolute;left:230px;color:white;top:5px;">+77272735779</span>
+<span style = "position:absolute;left:230px;color:white;top:25px;">+77072240097</span>
+<span style = "position:absolute;left:230px;color:white;top:45px;">+77056262828</span>
+<img src = "mail.png" style = "position:absolute;left:340px" width = "40px" />
+<input type = "text" placeholder = "Enter text...." style = "position:absolute;right:90px;top:13px;" size = "25" maxlength = "30" id = "search"/>
+<button style = "position:absolute;right:5px;background-color:red;color:white;font-size:20px;" onclick = "MyFunction()" >Search</button>
+<h1 style="font-family:arial;color:gold;font-size:30px;">JAMILA</h1>
+<h2 style ="font-family:arial;color:gold;position:absolute;top:56px;right:500px;" >Salon of beauty<h2>
+<p></p>
+<ul>
+  <li><a href="homepage.html" style="text-decoration:none;font-size:25px;">Homepage</a></li>
+  <li><a href="services.html" style="text-decoration:none;position:absolute;right:880px;">Our services</a></li>
+  <li><a href="news.html" style="text-decoration:none;position:absolute;right:750px;">News</a></li>
+  <li><a href="gallery.html" style="text-decoration:none;position:absolute;right:550px;">Gallery</a></li>
+<li><a href="masters.html" style="text-decoration:none;position:absolute;right:300px;">Our masters</a></li>
+<li><a href="feedbacks.html" style="text-decoration:none;position:absolute;right:50px;">Your feedbacks</a></li>
+</ul>
+<p style = "text-align:left;color:#E58E0C;font-size:40px;position:absolute;top:170px;left:560px;">Online Reservation</p>
+<a href = "cancelreservation.html"/><p style = "text-align:left;color:blue;font-size:20px;position:absolute;top:205px;left:120px;">Want to cancel your reservation?</p>
+<form action = "reservationphp.php" method = "POST">
+<p style = "text-align:left;color:black;font-size:20px;position:absolute;top:240px;left:425px;">It is just an application for reservation. You still did not book a reservation.</p>
+<p style = "text-align:left;color:black;font-size:20px;position:absolute;top:260px;left:495px;">Fill the application, and our manager will contact you.</p>
+<input type="text" name="ReservationID" size="35" style="padding:10px;position:absolute;top:340px;left:580px;"
+maxlength="30" placeholder = "Come up with the ID of your reservation..." id = "reservationid" pattern="[0-9]+" title="Please enter digits only" required/>
+ <input type="text" name="ClientID" size="35" style="padding:10px;position:absolute;top:420px;left:580px;"
+maxlength="30" placeholder = "Come up with your unique ID..." id = "clientid" pattern="[0-9]+" title="Please enter digits only" required/>
+ <input type="text" name="ClientName" size="35" style="padding:10px;position:absolute;top:500px;left:580px;"
+maxlength="30" placeholder = "Your name...." id = "name" />
+<input type="text" name="PhoneNumber" size="35" style="padding:10px;position:absolute;top:580px;left:580px;"
+maxlength="30" placeholder = "Your phone number...." id = "phonenumber"/>
+<input type="text" name="ClientEmail" size="35" style="padding:10px;position:absolute;top:660px;left:580px;"
+maxlength="30" placeholder = "Your email...." id = "email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{1,9}$" title="Write your email in the right format"required/>
+<p style="padding:10px;position:absolute;top:700px;left:570px;color:black;font-size:20px;"> Which service are you interested in?</p>
+<select name = "ReservationType" style="padding:10px;position:absolute;top:770px;left:635px;color:black;font-size:20px;" >
+<option value = "femalehaircut">Female haircut</option>
+<option value = "malehaircut">Male haircut</option>
+<option value = "childrenhaircut">Children's haircut</option>
+<option value = "manicure">Manicure</option>
+<option value = "pedicure">Pedicure</option>
+<option value = "haircoloring">Hair coloring</option>
+<option value = "hairhighlighting">Hair highlighting</option>
+<option value = "haircurling">Hair curling</option>
+<option value = "mensbeardtrim">Men's beard trim</option>
+<option value = "cosmetology">Cosmetology</option>
+<option value = "facecleaning">Face cleaning</option>
+<option value = "bodypiercing">Body piercing</option>
+</select>
+<input type="text" name="Date" size="35" style="padding:10px;position:absolute;top:850px;left:580px;"
+maxlength="30" placeholder = "Date of your service...." id = "date"/>
+<input type = "submit" name = "submit" value = "Submit" style = "background-color:red;color:white;height: 50px;margin:15px;font-family:sans serif;font-size:30px;position:absolute; right:455px;top:900px;" onclick = "MyFunction1()">
+<p style = "text-align:left;color:black;font-size:20px;position:absolute;top:960px;left:425px;">Send the application, and we will contact you in order to tell you whether this</p>
+<p style = "text-align:left;color:black;font-size:20px;position:absolute;top:980px;left:445px;">date is free, clarify all the details, and talk about the method of payment.</p>
+<p style = "text-align:left;color:black;font-size:20px;position:absolute;top:1020px;left:445px;"> If you have already talked with the administrator about your reservation, </p>
+<p style = "text-align:left;color:black;font-size:20px;position:absolute;top:1040px;left:445px;">but want to pay for it in advance, click here:</p>
+<a href = "payment.html"/><p style = "text-align:left;color:blue;font-size:20px;position:absolute;top:1040px;left:825px;">Payment in advance</p>
+</form>
+</body>
+</head>
+</html>
+<script>
+function MyFunction(){
+var x = document.getElementById("search").value;
+if (x =="natalya mustafaeva"){
+window.location.href = "masters.html";
+}
+else if (x =="Natalya Mustafaeva"){
+window.location.href = "masters.html";
+}
+else if (x =="natalya"){
+window.location.href = "masters.html";
+}
+else if (x =="Natalya"){
+window.location.href = "masters.html";
+}
+else if (x =="mustafaeva"){
+window.location.href = "masters.html";
+}
+else if (x =="Mustafaeva"){
+window.location.href = "masters.html";
+}
+else if (x =="svetlana zemerova"){
+window.location.href = "masters.html";
+}
+else if (x =="Svetlana Zemerova"){
+window.location.href = "masters.html";
+}
+else if (x =="svetlana"){
+window.location.href = "masters.html";
+}
+else if (x =="Svetlana"){
+window.location.href = "masters.html";
+}
+else if (x =="zemerova"){
+window.location.href = "masters.html";
+}
+else if (x =="Zemerova"){
+window.location.href = "masters.html";
+}
+else if (x =="tatyana udachina"){
+window.location.href = "masters.html";
+}
+else if (x =="Tatyana Udachina"){
+window.location.href = "masters.html";
+}
+else if (x =="tatyana"){
+window.location.href = "masters.html";
+}
+else if (x =="Tatyana"){
+window.location.href = "masters.html";
+}
+else if (x =="udachina"){
+window.location.href = "masters.html";
+}
+else if (x =="Udachina"){
+window.location.href = "masters.html";
+}
+else if (x =="nailya zaripova"){
+window.location.href = "masters.html";
+}
+else if (x =="Nailya Zaripova"){
+window.location.href = "masters.html";
+}
+else if (x =="nailya"){
+window.location.href = "masters.html";
+}
+else if (x =="Nailya"){
+window.location.href = "masters.html";
+}
+else if (x =="zaripova"){
+window.location.href = "masters.html";
+}
+else if (x =="Zaripova"){
+window.location.href = "masters.html";
+}
+else if (x =="sanam razyamova"){
+window.location.href = "masters.html";
+}
+else if (x =="Sanam Razyamova"){
+window.location.href = "masters.html";
+}
+else if (x =="sanam"){
+window.location.href = "masters.html";
+}
+else if (x =="Sanam"){
+window.location.href = "masters.html";
+}
+else if (x =="razyamova"){
+window.location.href = "masters.html";
+}
+else if (x =="Razyamova"){
+window.location.href = "masters.html";
+}
+else if (x =="yuliya bekker"){
+window.location.href = "masters.html";
+}
+else if (x =="Yuliya Bekker"){
+window.location.href = "masters.html";
+}
+else if (x =="yuliya"){
+window.location.href = "masters.html";
+}
+else if (x =="Yuliya"){
+window.location.href = "masters.html";
+}
+else if (x =="bekker"){
+window.location.href = "masters.html";
+}
+else if (x =="Bekker"){
+window.location.href = "masters.html";
+}
+else if (x =="nadezhda evdokimova"){
+window.location.href = "masters.html";
+}
+else if (x =="Nadezhda Evdokimova"){
+window.location.href = "masters.html";
+}
+else if (x =="nadezhda"){
+window.location.href = "masters.html";
+}
+else if (x =="Nadezhda"){
+window.location.href = "masters.html";
+}
+else if (x =="evdokimova"){
+window.location.href = "masters.html";
+}
+else if (x =="Evdokimova"){
+window.location.href = "masters.html";
+}
+else if (x =="larisa prokopyeva"){
+window.location.href = "masters.html";
+}
+else if (x =="Larisa Prokopyeva"){
+window.location.href = "masters.html";
+}
+else if (x =="larisa"){
+window.location.href = "masters.html";
+}
+else if (x =="Larisa"){
+window.location.href = "masters.html";
+}
+else if (x =="prokopyeva"){
+window.location.href = "masters.html";
+}
+else if (x =="Prokopyeva"){
+window.location.href = "masters.html";
+}
+else if (x =="female haircut"){
+window.location.href = "services.html";
+}
+else if (x =="Female haircut"){
+window.location.href = "services.html";
+}
+else if (x =="male haircut"){
+window.location.href = "services.html";
+}
+else if (x =="Male haircut"){
+window.location.href = "services.html";
+}
+else if (x =="children's haircut"){
+window.location.href = "services.html";
+}
+else if (x =="Children's haircut"){
+window.location.href = "services.html";
+}
+else if (x =="manicure"){
+window.location.href = "services.html";
+}
+else if (x =="Manicure"){
+window.location.href = "services.html";
+}
+else if (x =="pedicure"){
+window.location.href = "services.html";
+}
+else if (x =="Pedicure"){
+window.location.href = "services.html";
+}
+else if (x =="hair coloring"){
+window.location.href = "services.html";
+}
+else if (x =="Hair coloring"){
+window.location.href = "services.html";
+}
+else if (x =="hair highlighting"){
+window.location.href = "services.html";
+}
+else if (x =="Hair highlighting"){
+window.location.href = "services.html";
+}
+else if (x =="hair curling"){
+window.location.href = "services.html";
+}
+else if (x =="Hair curling"){
+window.location.href = "services.html";
+}
+else if (x =="men's beard trim"){
+window.location.href = "services.html";
+}
+else if (x =="Men's beard trim"){
+window.location.href = "services.html";
+}
+else if (x =="cosmetology"){
+window.location.href = "services.html";
+}
+else if (x =="Cosmetology"){
+window.location.href = "services.html";
+}
+else if (x =="face cleaning"){
+window.location.href = "services.html";
+}
+else if (x =="Face cleaning"){
+window.location.href = "services.html";
+}
+else if (x =="body piercing"){
+window.location.href = "services.html";
+}
+else if (x =="Body piercing"){
+window.location.href = "services.html";
+}
+else if (x =="contacts"){
+window.location.href = "homepage.html";
+}
+else if (x =="Contacts"){
+window.location.href = "homepage.html";
+}
+else if (x =="home"){
+window.location.href = "homepage.html";
+}
+else if (x =="Home"){
+window.location.href = "homepage.html";
+}
+else if (x =="homepage"){
+window.location.href = "homepage.html";
+}
+else if (x =="Homepage"){
+window.location.href = "homepage.html";
+}
+else if (x =="feedbacks"){
+window.location.href = "feedbacks.html";
+}
+else if (x =="Feedbacks"){
+window.location.href = "feedbacks.html";
+}
+else if (x =="gallery"){
+window.location.href = "gallery.html";
+}
+else if (x =="Gallery"){
+window.location.href = "gallery.html";
+}
+else if (x =="photos"){
+window.location.href = "gallery.html";
+}
+else if (x =="Photos"){
+window.location.href = "gallery.html";
+}
+else if (x =="masters"){
+window.location.href = "masters.html";
+}
+else if (x =="Masters"){
+window.location.href = "masters.html";
+}
+else if (x =="workers"){
+window.location.href = "masters.html";
+}
+else if (x =="Workers"){
+window.location.href = "masters.html";
+}
+else if (x =="news"){
+window.location.href = "news.html";
+}
+else if (x =="News"){
+window.location.href = "news.html";
+}
+else if (x =="reservation"){
+window.location.href = "reservation.html";
+}
+else if (x =="Reservation"){
+window.location.href = "reservation.html";
+}
+else if (x =="reserve"){
+window.location.href = "reservation.html";
+}
+else if (x =="Reserve"){
+window.location.href = "reservation.html";
+}
+else if (x =="services"){
+window.location.href = "services.html";
+}
+else if (x =="Services"){
+window.location.href = "services.html";
+}
+else if (x =="service"){
+window.location.href = "services.html";
+}
+else if (x =="Service"){
+window.location.href = "services.html";
+}
+else {
+window.location.href = "nothingwasfound.html";
+}
+}
+ function MyFunction1(){
+var x = document.getElementById("reservationid").value;
+var y = document.getElementById("clientid").value;
+var z = document.getElementById("name").value;
+var a = document.getElementById("phonenumber").value;
+var b = document.getElementById("email").value;
+var c = document.getElementById("date").value;
+if ((x=="")||(y=="")||(z=="")||(a=="")||(b=="")||(c=="")){
+alert("You must fill all the gaps!");
+}
+else{
+alert("Your request has been accepted! We will call you soon or write to your email in order to talk about details of the reservation.");
+window.location.href = "reservation.html";
+}
+}
+</script>

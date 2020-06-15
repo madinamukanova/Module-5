@@ -1,0 +1,183 @@
+
+
+<html>
+<head>
+<title>Online reservation</title>
+<style>
+body {
+ background-image: url("purple.jpg"),url("pink.png");
+background-position: center top,center center;
+  background-attachment:scroll;
+  background-repeat: no-repeat;
+ background-size: 1500px 200px,1500px 4000px;
+  text-align: center;
+  color: white;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 20px;
+  overflow: hidden;
+  background-color: white;
+
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  padding: 8px;
+  color:black;
+}
+a{
+text-decoration: underline;}
+</style>
+</head>
+<body>
+<img src = "instagram.png" align = "left" width = "40px"/>
+<strong><span style = "color:white;position:absolute;left:55px;top:17px;font-size:20px;">@salon.jamila</span></strong>
+<img src = "phone.png" style = "position:absolute;left:190px" width = "40px" />
+<span style = "position:absolute;left:230px;color:white;top:5px;">+77272735779</span>
+<span style = "position:absolute;left:230px;color:white;top:25px;">+77072240097</span>
+<span style = "position:absolute;left:230px;color:white;top:45px;">+77056262828</span>
+<img src = "mail.png" style = "position:absolute;left:340px" width = "40px" />
+<span style = "color:white;position:absolute;left:385px;top:17px;font-size:15px;">beautysalon.jamila@gmail.com</span>
+<img src = "address.png" style = "position:absolute;left:730px" width = "40px" />
+<span style = "color:white;position:absolute;left:765px;top:9px;font-size:15px;">Almaty city,Pushkin street 41 </span>
+<span style = "color:white;position:absolute;left:765px;top:31px;font-size:15px;">1-st floor,salon"JAMILA" </span>
+<input type = "text" placeholder = "Enter text...." style = "position:absolute;right:90px;top:13px;" size = "25" maxlength = "30" id = "search"/>
+<button style = "position:absolute;right:5px;background-color:red;color:white;font-size:20px;" onclick = "MyFunction()" >Search</button>
+<h1 style="font-family:arial;color:gold;font-size:30px;">JAMILA</h1>
+<h2 style ="font-family:arial;color:gold;position:absolute;top:16px;right:500px;" >Salon of beauty<h2>
+<p></p>
+<ul>
+  <li><a href="homepage.html" style="text-decoration:none;font-size:25px;">Homepage</a></li>
+  <li><a href="registration.html" style="text-decoration:none;position:absolute;right:880px;">Menu</a></li>
+  <li><a href="Specials.html" style="text-decoration:none;position:absolute;right:750px;">Specials</a></li>
+<li><a href="Map.html" style="text-decoration:none;position:absolute;right:590px;">Map</a></li>
+<li></li>
+</ul>
+<p style = "text-align:left;color:#E58E0C;font-size:40px;position:absolute;top:170px;left:560px;">Online Reservation</p>
+<a href = "cancelreservation.html"/><p style = "text-align:left;color:blue;font-size:20px;position:absolute;top:205px;left:120px;">Want to cancel your reservation?</p>
+<form action = "reservationphp.php" method = "POST">
+<p style = "text-align:left;color:black;font-size:20px;position:absolute;top:240px;left:425px;">It is just an application for reservation. You still did not book a reservation.</p>
+<p style = "text-align:left;color:black;font-size:20px;position:absolute;top:260px;left:495px;">Fill the application, and our manager will contact you.</p>
+<input type="text" name="ReservationID" size="35" style="padding:10px;position:absolute;top:340px;left:580px;"
+maxlength="30" placeholder = "Come up with the ID of your reservation..." id = "reservationid" pattern="[0-9]+" title="Please enter digits only" required/>
+<input type = "submit" name = "check" value = "Check Validity" style = "background-color:red;color:white;height: 30px;margin:15px;font-family:sans serif;font-size:20px;position:absolute; right:185px;top:328px;" title="Click to check the validity of the ID of your reservation" onclick = "Check()">
+<p id = "message" style = "text-align:left;color:black;font-size:17px;position:absolute;top:330px;left:1035px;"></p>
+ <input type="text" name="ClientID" size="35" style="padding:10px;position:absolute;top:420px;left:580px;"
+maxlength="30" placeholder = "Come up with your unique ID..." id = "clientid" pattern="[0-9]+" title="Please enter digits only" required/>
+ <input type="text" name="ClientName" size="35" style="padding:10px;position:absolute;top:500px;left:580px;"
+maxlength="30" placeholder = "Your name...." id = "name" />
+<input type="text" name="PhoneNumber" size="35" style="padding:10px;position:absolute;top:580px;left:580px;"
+maxlength="30" placeholder = "Your phone number...." id = "phonenumber"/>
+<input type="text" name="ClientEmail" size="35" style="padding:10px;position:absolute;top:660px;left:580px;"
+maxlength="30" placeholder = "Your email...." id = "email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{1,9}$" title="Write your email in the right format"required/>
+<select name = "ReservationType" style="padding:10px;position:absolute;top:770px;left:635px;color:black;font-size:20px;" >
+<option value = "femalehaircut">Female haircut</option>
+<option value = "malehaircut">Male haircut</option>
+<option value = "childrenhaircut">Children's haircut</option>
+<option value = "manicure">Manicure</option>
+<option value = "pedicure">Pedicure</option>
+<option value = "haircoloring">Hair coloring</option>
+<option value = "hairhighlighting">Hair highlighting</option>
+<option value = "haircurling">Hair curling</option>
+<option value = "mensbeardtrim">Men's beard trim</option>
+<option value = "cosmetology">Cosmetology</option>
+<option value = "facecleaning">Face cleaning</option>
+<option value = "bodypiercing">Body piercing</option>
+</select>
+<input type="text" name="Date" size="35" style="padding:10px;position:absolute;top:850px;left:580px;"
+maxlength="30" placeholder = "Date of your order...." id = "date"/>
+<input type = "submit" name = "submit" value = "Submit" style = "background-color:red;color:white;height: 50px;margin:15px;font-family:sans serif;font-size:30px;position:absolute; right:455px;top:900px;" title="Click to submit your reservation" onclick = "MyFunction1()">
+<p style = "text-align:left;color:black;font-size:20px;position:absolute;top:960px;left:425px;">Send the application, and we will contact you in order to tell you whether this</p>
+<p style = "text-align:left;color:black;font-size:20px;position:absolute;top:980px;left:445px;">date is free, clarify all the details, and talk about the method of payment.</p>
+<p style = "text-align:left;color:black;font-size:20px;position:absolute;top:1020px;left:445px;"> If you have already talked with the administrator about your reservation, </p>
+<p style = "text-align:left;color:black;font-size:20px;position:absolute;top:1040px;left:445px;">but want to pay for it in advance, click here:</p>
+<a href = "payment.html"/><p style = "text-align:left;color:blue;font-size:20px;position:absolute;top:1040px;left:825px;" title="Click to open the page of payment in advance">Payment in advance</p>
+</form>
+</body>
+</head>
+</html>
+<script>
+function MyFunction(){
+var x = document.getElementById("search").value;
+if (x =="home"){
+window.location.href = "homepage.html";
+}
+else if (x =="Home"){
+window.location.href = "homepage.html";
+}
+else if (x =="homepage"){
+window.location.href = "homepage.html";
+}
+else if (x =="Homepage"){
+window.location.href = "homepage.html";
+}
+else if (x =="Map"){
+window.location.href = "Map.html";
+}
+else if (x =="Map"){
+window.location.href = "Map.html";
+}
+else if (x =="Specials"){
+window.location.href = "Specials.html";
+}
+else if (x =="Specials"){
+window.location.href = "Specials.html";
+}
+else if (x =="reservation"){
+window.location.href = "reservation.html";
+}
+else if (x =="Reservation"){
+window.location.href = "reservation.html";
+}
+else if (x =="reserve"){
+window.location.href = "reservation.html";
+}
+else if (x =="Reserve"){
+window.location.href = "reservation.html";
+}
+else if (x =="Menu"){
+window.location.href = "registration.html";
+}
+else {
+window.location.href = "nothingwasfound.html";
+}
+}
+ function MyFunction1(){
+var x = document.getElementById("reservationid").value;
+var y = document.getElementById("clientid").value;
+var z = document.getElementById("name").value;
+var a = document.getElementById("phonenumber").value;
+var b = document.getElementById("email").value;
+var c = document.getElementById("date").value;
+if ((x=="")||(y=="")||(z=="")||(a=="")||(b=="")||(c=="")){
+alert("You must fill all the gaps!");
+}
+else{
+alert("Your request has been accepted! We will call you soon or write to your email in order to talk about details of the reservation.");
+window.location.href = "reservation.html";
+}
+}
+function Check(){
+var message, input;
+  message = document.getElementById("message");
+  message.innerHTML = "";
+  input = document.getElementById("reservationid").value;
+  try { 
+    if(input == "")  throw "empty";
+    if(isNaN(input)) throw "not a number";
+    input = Number(input);
+    if(input < 10)  throw "too low";
+    if(input > 100000)   throw "too high";
+    else throw "normal";
+  }
+  catch(err) {
+    message.innerHTML = "Input is " + err;
+  }
+}
+</script>

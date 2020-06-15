@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+<title>Registration</title>
+<style>
+body {
+  background-image: url("purple.jpg"),url("pink.png");
+background-position: center top,center center;
+  background-attachment:scroll;
+  background-repeat: no-repeat;
+ background-size: 1500px 280px,1500px 4000px;
+  text-align: center;
+  color: white;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 20px;
+  overflow: hidden;
+  background-color: white;
+
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  padding: 8px;
+  color:black;
+}
+a{
+text-decoration: underline;}
+</style>
+</head>
+<body>
+<img src = "instagram.png" align = "left" width = "40px"/>
+<strong><span style = "color:white;position:absolute;left:55px;top:26px;font-size:20px;">@centralalmaty</span></strong>
+<img src = "phone.png" style = "position:absolute;left:190px" width = "40px" />
+<span style = "position:absolute;left:230px;color:white;top:5px;">+77272735779</span>
+<span style = "position:absolute;left:230px;color:white;top:25px;">+77072240097</span>
+<span style = "position:absolute;left:230px;color:white;top:45px;">+77056262828</span>
+<img src = "mail.png" style = "position:absolute;left:340px" width = "40px" />
+<span style = "color:white;position:absolute;left:385px;top:27px;font-size:15px;">centralalmaty@gmail.com</span>
+<img src = "address.png" style = "position:absolute;left:600px" width = "40px" />
+<span style = "color:white;position:absolute;left:735px;top:18px;font-size:11px;">Almaty city, Dostyk 11 </span>
+<span style = "color:white;position:absolute;left:735px;top:40px;font-size:11px;">1-st floor, cafe " Central"</span>
+<a href = "login.html"><button href = "" style = "position:absolute;right:285px;background-color:#8B720E;color:white;font-size:20px;">Log in</button></a>
+<input type = "text" placeholder = "Enter text...." style = "position:absolute;right:90px;top:23px;" size = "25" maxlength = "30" id = "search"/>
+<button style = "position:absolute;right:5px;background-color:red;color:white;font-size:20px;" onclick = "MyFunction()">Search</button>
+<h1 style="font-family:arial;color:gold;font-size:30px;">Cafe CENTRAL</h1>
+<h2 style ="font-family:arial;color:gold;position:absolute;top:24px;right:510px;" >   <h2>
+<p></p>
+<ul>
+  <li><a href="homepage.html" style="text-decoration:none;font-size:25px;">Homepage</a></li>
+  <li><a href="registration.html" style="text-decoration:none;position:absolute;right:880px;">Menu</a></li>
+  <li><a href="Specials.html" style="text-decoration:none;position:absolute;right:730px;">Specials</a></li>
+  <li><a href="Map.html" style="text-decoration:none;position:absolute;right:550px;">Map</a></li>
+</ul>
+<a href = "reservation.html"><button style = "background-color:black;color:white;height: 50px;margin:15px;font-family:sans serif;font-size:40px;position:absolute; right:330px;top:200px;">Reserve </button></a>
+<p style = "text-align:left;color:#E58E0C;;font-size:40px;position:absolute;top:270px;left:570px;">Registration</p>
+<form action = "registrationphp.php" method = "POST">
+<p style = "text-align:left;color:black;font-size:20px;position:absolute;top:340px;left:265px;">Attention!!! Registration and authorization on the site are only available for cafe employees</p>
+<p style = "text-align:left;color:black;font-size:20px;position:absolute;top:360px;left:265px;">Each worker is given a unique registration ID. With the help of it, workers will be able to log in the website.</p>
+<input type="text" name="WorkerID" size="35" style="padding:10px;position:absolute;top:410px;left:520px;"
+maxlength="30" placeholder = "Your unique registration ID..." id = "id" pattern="[0-9]+" title="Please enter digits only" required/>
+<input type="text" name="WorkerName" size="35" style="padding:10px;position:absolute;top:490px;left:520px;"
+maxlength="30" placeholder = "Your name & surname..." id = "namesurname" required />
+<input type="text" name="WorkerEmail" size="35" style="padding:10px;position:absolute;top:570px;left:520px;"
+maxlength="30" placeholder = "Your email..." id = "email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{1,9}$" title="Write your email in the right format"required/>
+<input type="text" name="WorkerPhoneNumber" size="35" style="padding:10px;position:absolute;top:650px;left:520px;"
+maxlength="30" placeholder = "Your phone number..." id = "phonenumber" pattern="[0-9]+" title="Please enter digits only" required/>
+<input type="password" name="WorkerPassword" size="35" style="padding:10px;position:absolute;top:730px;left:520px;"
+maxlength="30" placeholder = "Your password..." id = "password" required/>
+<input type="password" name="WorkerConfirmPassword" size="35" style="padding:10px;position:absolute;top:810px;left:520px;"
+maxlength="30" placeholder = "Confirm your password..." id = "confirmpassword" required/>
+<p style="padding:10px;position:absolute;top:850px;left:510px;color:black;font-size:20px;"> What is your occupation?</p>
+<select name = "WorkerOccupation" style="padding:10px;position:absolute;top:910px;left:520px;color:black;font-size:15px;" >
+<option value = "Cook">Cook</option>
+<option value = "Manager">Manager</option>
+<option value = "Waiter">Waiter</option>
+</select>
+<input type = "submit" name = "submit" value = "Sign Up" style = "background-color:red;color:white;height: 50px;margin:15px;font-family:sans serif;font-size:30px;position:absolute; right:500px;top:990px;" title="Click to sign up" onclick = "MyFunction1()">
+<a href = "termsandconditions.docx"/><p style = "text-align:left;color:blue;font-size:23px;position:absolute;top:950px;left:490px;" title="Click to open and read the Terms and Conditions"> <input type="checkbox" name="terms&conditions"
+value="Agree" checked="checked" id = "termsandconditions"/> I agree with the Terms&Conditions</p> 
+</form>
+</body>
+</head>
+</html>
+<script>
+function MyFunction(){
+var x = document.getElementById("search").value;
+if (x =="contacts"){
+window.location.href = "homepage.html";
+}
+else if (x =="Contacts"){
+window.location.href = "homepage.html";
+}
+else if (x =="home"){
+window.location.href = "homepage.html";
+}
+else if (x =="Home"){
+window.location.href = "homepage.html";
+}
+else if (x =="homepage"){
+window.location.href = "homepage.html";
+}
+else if (x =="Homepage"){
+window.location.href = "homepage.html";
+}
+else if (x =="Specials"){
+window.location.href = "Specials.html";
+}
+else if (x =="Specials"){
+window.location.href = "Specials.html";
+}
+else if (x =="reservation"){
+window.location.href = "reservation.html";
+}
+else if (x =="Reservation"){
+window.location.href = "reservation.html";
+}
+else if (x =="reserve"){
+window.location.href = "reservation.html";
+}
+else if (x =="Reserve"){
+window.location.href = "reservation.html";
+}
+else if (x =="Menu"){
+window.location.href = "registration.html";
+}
+else {
+window.location.href = "nothingwasfound.html";
+}
+}
+function MyFunction1(){
+var password = document.getElementById("password").value;
+var confirmpassword = document.getElementById("confirmpassword").value;
+if (password == confirmpassword){
+alert("The passwords match. Now we will check whether your ID exists in the database.");
+}
+else {
+alert("The passwords do not match.");
+}
+}
+</script>
